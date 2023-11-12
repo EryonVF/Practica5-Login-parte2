@@ -1,7 +1,7 @@
 # Practica5-Login-parte2
 Link de Github: https://github.com/EryonVF/Practica5-Login-parte2
 
-Primero aceptare que me tomo mucho tiempo realizar esta practica ya que me daba muchos errores en las librerias de mysql, una vez pude realizar la conexion no me funcionaban los usuarios apesar de que habia creado varios siempre me daba un error server internal el cual no me dejaba avanzar, tuve que cambiar librerias y importar algunas de otras maneras al final me daba error solo la de mysql pero me permite ejecutar el programa, despues ya modificando el archivo app, modeluser y el login por fin pude acceder con un usuario que cree en la base el cual era eryon y contraseña 123, la conytraseña la tome como el ejemplo que se agrego al pdf,accedi y me dio el mensaje de bienvenida.
+Primero aceptare que me tomo mucho tiempo realizar esta practica ya que me daba muchos errores en las librerias de mysql, una vez pude realizar la conexion no me funcionaban los usuarios apesar de que habia creado varios siempre me daba un error server internal el cual no me dejaba avanzar, tuve que cambiar librerias y importar algunas de otras maneras al final me daba error solo la de mysql pero me permite ejecutar el programa, despues ya modificando el archivo app, modeluser y el login por fin pude acceder con un usuario que cree en la base el cual era eryon y contraseña 123, la contraseña la tome como el ejemplo que se agrego al pdf,accedi y me dio el mensaje de bienvenida.
 
 
 
