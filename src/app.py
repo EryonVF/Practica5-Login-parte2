@@ -43,11 +43,16 @@ def login():
                 else:
                     return redirect(url_for("home"))
             else:
-                flash("Acceso rechazado. Verifica tu nombre de usuario y contraseña.")
+                print("Acceso rechazado. Verifica tu nombre de usuario y contraseña.")
+                flash("Acceso rechazado. Verifica tu nombre de usuario y contraseña.", 'error')  # 'error' es el tipo de mensaje
                 return render_template("auth/login.html")
+        except ValueError as ve:
+            print("Contraseña incorrecta:", ve)
+            flash("Contraseña incorrecta. Verifica tu nombre de usuario y contraseña.", 'error')
+            return render_template("auth/login.html")
         except Exception as e:
             print("Error al interactuar con la base de datos:", e)
-            flash("Ocurrió un error durante el inicio de sesión. Por favor, inténtalo nuevamente.")
+            flash("Ocurrió un error durante el inicio de sesión. Por favor, inténtalo nuevamente.", 'error')
             return render_template("auth/login.html")
     else:
         return render_template("auth/login.html")
