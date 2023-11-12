@@ -5,22 +5,13 @@ from models.ModelUsers import ModelUsers
 from models.entities.users import User
 
 app = Flask(__name__)
+mysql = MySQL(app)
 
-def configure_app():
-    app.config['MYSQL_USER'] = 'usuario1'
-    app.config['MYSQL_PASSWORD'] = 'Sistemas1234'
-    app.config['MYSQL_DB'] = 'store'
-    app.config['MYSQL_HOST'] = 'localhost'
-
+# Configuración de la base de datos
+app.config.from_object(config['development'])
 
 try:
-    # Configura la aplicación antes de inicializar MySQL
-    configure_app()
-
-    # Inicializa MySQL después de configurar la aplicación
-    mysql = MySQL(app)
-
-    # Verifica si puedes conectar antes de ejecutar la aplicación
+    # Verifica la conexión a la base de datos antes de ejecutar la aplicación
     with app.app_context():
         db = mysql.connection
         cursor = db.cursor()
@@ -39,9 +30,12 @@ def login():
     if request.method == "POST":
         try:
             user = User(0, request.form['username'], request.form['password'], 0)
+            print("Intento de inicio de sesión para el usuario:", user.username)
             
             with app.app_context():
                 logged_user = ModelUsers.login(mysql, user)
+            
+            print("Usuario autenticado:", logged_user)
             
             if logged_user is not None:
                 if logged_user.usertype == 1:
@@ -67,5 +61,4 @@ def home():
     return render_template("home.html")
 
 if __name__ == '__main__':
-    app.config.from_object(config['development'])
     app.run(debug=True)
